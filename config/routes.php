@@ -1,5 +1,6 @@
 <?php
-    return array(
+    return array
+    (
         'mainpage' => 'mainpage/showMainpage',
 
         'articles' => 'article/showAllArticles',

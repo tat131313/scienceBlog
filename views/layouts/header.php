@@ -13,7 +13,12 @@
             <img src="template/images/header.png" alt="header_img" height="30%" width="30%">
         </div>
 
-        <div align="right">
-            <a href="/../../categories.php"><h3>Categories</h3></a>
+        <div align="right">           
+            <h3>
+                <a href="/../../categories.php">Sport</a>
+                <a href="/../../categories.php">Science</a>
+                <a href="/../../categories.php">Info</a>
+                <a href="/../../categories.php">Other</a>
+            </h3>
         </div>
     </header>
