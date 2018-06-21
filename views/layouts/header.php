@@ -15,10 +15,10 @@
 
         <div align="right">           
             <h3>
-                <a href="/../../categories.php">Sport</a>
-                <a href="/../../categories.php">Science</a>
-                <a href="/../../categories.php">Info</a>
-                <a href="/../../categories.php">Other</a>
+                <a href="category/sport">Sport</a>
+                <a href="category/science">Science</a>
+                <a href="category/info">Info</a>
+                <a href="category/other">Other</a>
             </h3>
         </div>
     </header>

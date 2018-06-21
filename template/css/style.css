@@ -1,0 +1,14 @@
+#footer {
+    margin-top:50px;
+    height:100px;
+    width:100%;
+    background: #0dbfe5;
+}
+
+.footerInner {
+    position:relative;
+    border:0px solid #000;
+    width:1200px;
+    margin:-50px;
+    height:100px;
+}

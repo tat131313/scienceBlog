@@ -24,10 +24,12 @@ class Router{
         foreach ($this->routes as $uriPattern => $path){
             //сравниваем $uriPattern и $uri
             if(preg_match("~$uriPattern~", $uri)){
+
+                $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
                 
                 //определить какой контроллер и action обрабатывают запрос
 
-                $segments = explode('/', $path);
+                $segments = explode('/', $internalRoute);
 
                 $controllerName = array_shift($segments).'Controller';
                 $controllerName = ucfirst($controllerName);
@@ -35,6 +37,8 @@ class Router{
                 $actionName = 'action'.ucfirst(array_shift($segments));
 
                 $parameters = $segments;
+
+                //var_dump($parameters);
 
                 //подключение файла класса контроллера
                 $controllerFile = ROOT.'/controllers/'.$controllerName.'.php';

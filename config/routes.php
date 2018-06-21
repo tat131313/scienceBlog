@@ -5,7 +5,7 @@
 
         'articles' => 'article/showAllArticles',
 
-        'categories' => 'category/showCategories',
+        'category/([a-z]+)' => 'category/getCategory/$1',
 
 
     );
