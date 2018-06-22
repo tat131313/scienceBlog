@@ -6,12 +6,11 @@ class MainpageController
 {
     public function actionShowMainpage()
     {
-        $lastFiveArticles = Article::getLastFiveArticles();
+        $lastFiveArticles = Article::getLastFiveArticles();   
         
-        
-        require_once(ROOT.'/views/main_page.php');
-        //require_once(ROOT.'/views/welcome.php');
-        return $lastFiveArticles;
+        //require_once(ROOT.'/views/main_page.php');
+        //return $lastFiveArticles;
+        return  require_once(ROOT.'/views/main_page.php');
     }
 
 }
