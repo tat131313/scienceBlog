@@ -1,13 +1,10 @@
 <?php
 
-/*class Category
+class Category
 {
 
-    public static function showCategory()
+    public static function selectArticlesToChoosenCategory($category)
     {
-        require_once(ROOT.'/controllers/CategoryController');
-        $category = CategoryController::actionGetCategory();
-
         $db = db::getConnection();
 
         $showcategory = array();
@@ -25,5 +22,5 @@
 
         return $showcategory;
     }
-}*/
+}
 ?>

@@ -7,22 +7,12 @@ class CategoryController{
         //require_once(ROOT.'/views/categories.php');
         var_dump($category);
 
+        $articlesToChoosenCategory = Category::selectArticlesToChoosenCategory($category);
+        var_dump($articlesToChoosenCategory);
+
         
-        return $category;
+        return $articlesToChoosenCategory;
     }
-
-    /*public function actionShowCategory(){
-
-        require_once(ROOT.'/views/categories.php');
-        //var_dump($category);
-        $showcategory = Category::showCategory();
-        var_dump($showcategory);
-
-        
-        return $showcategory;
-    }*/
-
-
 }
 
 ?>
