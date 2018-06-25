@@ -8,8 +8,6 @@ class MainpageController
     {
         $lastFiveArticles = Article::getLastFiveArticles();   
         
-        //require_once(ROOT.'/views/main_page.php');
-        //return $lastFiveArticles;
         return  require_once(ROOT.'/views/main_page.php');
     }
 
