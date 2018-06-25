@@ -9,7 +9,7 @@ class Category
 
         $showcategory = array();
 
-        $result = $db->query("SELECT `id`, `autor`, `date`, `abstract`, `category` FROM `articles` WHERE `category` = '$category'");
+        $result = $db->query("SELECT `id`, `autor`, `date`, `abstract`, `category` FROM `articles` WHERE `category` = '$category' ORDER BY `date`");
         $i = 0;
         while($row = $result->fetch())
         {
