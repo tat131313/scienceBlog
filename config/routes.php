@@ -3,9 +3,11 @@
     (
         'mainpage' => 'mainpage/showMainpage',
 
-        'article' => 'article/addNewArticle',
-
         'category/([a-z]+)' => 'category/getCategory/$1',
+
+        'article/add' => 'article/addNewArticle',
+
+        'article' => 'article/show',
 
 
     );

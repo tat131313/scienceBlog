@@ -29,11 +29,12 @@ class Article
 
         $lastFiveArticles = array();
 
-        $result = $db->query('SELECT `id`, `autor`, `date`, `abstract` FROM `articles` ORDER BY `date` DESC LIMIT 5');
+        $result = $db->query('SELECT `id`,`article_name`, `autor`, `date`, `abstract` FROM `articles` ORDER BY `date` DESC LIMIT 5');
         $i = 0;
         while($row = $result->fetch())
         {
             $lastFiveArticles[$i]['id'] = $row['id'];
+            $lastFiveArticles[$i]['article_name'] = $row['article_name'];
             $lastFiveArticles[$i]['autor'] = $row['autor'];
             $lastFiveArticles[$i]['date'] = $row['date'];
             $lastFiveArticles[$i]['abstract'] = $row['abstract'];
@@ -47,13 +48,13 @@ class Article
     {
         $db = db::getConnection();
 
-        /*include_once(ROOT."/views/articles.php");
+        include_once(ROOT."/views/articles.php");
 
-        $articleName = POST['articleName'];
+        $articleName = $_POST['articleName'];
 
         var_dump($articleName);
 
-        return $$articleName;*/
+        return $$articleName;
     }
 }
 ?>

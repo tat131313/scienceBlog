@@ -1,7 +1,7 @@
 <?php include_once("layouts/header.php"); ?>
 
 <br>
-<form>
+<form method="POST" action="article/add">
   <div class="form-group row">
     <label for="articleName" class="col-sm-2 col-form-label">Article name:</label>
     <div class="col-sm-10">
@@ -31,25 +31,25 @@
       <legend class="col-form-label col-sm-2 pt-0">Category:</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="categorSport" id="gridRadios1" value="option1">
+          <input class="form-check-input" type="radio" name="category" id="gridRadios1" value="option1">
           <label class="form-check-label" for="gridRadios1">
             Sport
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="categoryScience" id="gridRadios2" value="option2">
+          <input class="form-check-input" type="radio" name="category" id="gridRadios2" value="option2">
           <label class="form-check-label" for="gridRadios2">
             Science
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="categoryInfo" id="gridRadios3" value="option3">
+          <input class="form-check-input" type="radio" name="category" id="gridRadios3" value="option3">
           <label class="form-check-label" for="gridRadios3">
             Info
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="categoryOther" id="gridRadios3" value="option4">
+          <input class="form-check-input" type="radio" name="category" id="gridRadios3" value="option4">
           <label class="form-check-label" for="gridRadios4">
             Other
           </label>
@@ -64,4 +64,7 @@
   </div>
 </form>
     
+    <?php if(isset($e)):  ?>
+    <p><?php echo $e ?></p>
+    <?php endif ?>
 <?php include_once("layouts/footer.php"); ?>
