@@ -1,5 +1,6 @@
 <?php include_once("layouts/header.php"); ?>
     
+<br>
     <div> 
         <?php foreach($lastFiveArticles as $row): ?>
             <h3>Autor: <?php echo $row['autor']; ?></h3>

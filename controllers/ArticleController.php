@@ -4,16 +4,14 @@ include_once(ROOT.'/models/Article.php');
 
 class ArticleController
 {
-    public function actionShowAllArticles()
+    public function actionAddNewArticle()
     {
 
         require_once(ROOT.'/views/articles.php');
 
-        $articleAll = Article::getAllArticles();
+        $addNewArticle = Article::addNewArticle();
 
-        var_dump($articleAll);
 
-        echo 'actionView';
         
         return true;
     }

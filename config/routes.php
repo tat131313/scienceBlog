@@ -3,7 +3,7 @@
     (
         'mainpage' => 'mainpage/showMainpage',
 
-        'articles' => 'article/showAllArticles',
+        'article' => 'article/addNewArticle',
 
         'category/([a-z]+)' => 'category/getCategory/$1',
 

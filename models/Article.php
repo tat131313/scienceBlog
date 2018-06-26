@@ -3,7 +3,7 @@
 class Article
 {
 
-    public static function getAllArticles()
+    /*public static function getAllArticles()
     {
         $db = db::getConnection();
 
@@ -21,7 +21,7 @@ class Article
         }
 
         return $allArticles;
-    }
+    }*/
 
     public static function getLastFiveArticles()
     {
@@ -41,6 +41,19 @@ class Article
         }
 
         return $lastFiveArticles;
+    }
+
+    public static function addNewArticle()
+    {
+        $db = db::getConnection();
+
+        /*include_once(ROOT."/views/articles.php");
+
+        $articleName = POST['articleName'];
+
+        var_dump($articleName);
+
+        return $$articleName;*/
     }
 }
 ?>
