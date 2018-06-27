@@ -31,25 +31,25 @@
       <legend class="col-form-label col-sm-2 pt-0">Category:</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="category" id="gridRadios1" value="option1">
+          <input class="form-check-input" type="radio" name="category" id="gridRadios1" value="sport">
           <label class="form-check-label" for="gridRadios1">
             Sport
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="category" id="gridRadios2" value="option2">
+          <input class="form-check-input" type="radio" name="category" id="gridRadios2" value="science">
           <label class="form-check-label" for="gridRadios2">
             Science
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="category" id="gridRadios3" value="option3">
+          <input class="form-check-input" type="radio" name="category" id="gridRadios3" value="info">
           <label class="form-check-label" for="gridRadios3">
             Info
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="category" id="gridRadios3" value="option4">
+          <input class="form-check-input" type="radio" name="category" id="gridRadios3" value="other">
           <label class="form-check-label" for="gridRadios4">
             Other
           </label>

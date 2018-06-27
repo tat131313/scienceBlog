@@ -48,13 +48,16 @@ class Article
     {
         $db = db::getConnection();
 
-        include_once(ROOT."/views/articles.php");
-
         $articleName = $_POST['articleName'];
+        $autor = $_POST['autor'];
+        $article = $_POST['article'];
+        $abstract = $_POST['abstract'];
+        $category = $_POST['category'];
 
-        var_dump($articleName);
+        $result = $db->query("INSERT INTO `articles` (`article_name`, `autor`, `article`, `abstract`, `category`) 
+        VALUES ('$articleName', '$autor', '$article', '$abstract', '$category')");
 
-        return $$articleName;
+        return true;
     }
 }
 ?>
