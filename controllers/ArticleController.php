@@ -7,59 +7,47 @@ class ArticleController
     public function actionAddNewArticle()
     {
         
-        var_dump($_POST);
+        //var_dump($_POST);
 
-        $array = array();
-        $array[0] = $_POST['articleName'];
-        $array[1] = $_POST['autor'];
-        $array[2] = $_POST['article'];
-        $array[3] = $_POST['abstract'];
+        $articleInfo = array();
+        $articleInfo['articleName'] = $_POST['articleName'];
+        $articleInfo['autor'] = $_POST['autor'];
+        $articleInfo['article'] = $_POST['article'];
+        $articleInfo['abstract'] = $_POST['abstract'];
 
         $article = new ArticleController;
         
-        $article -> validateArticle($array);
-        
-        if($article == true)
+        if($article -> validateArticle($articleInfo))
         {
-            echo "if";
             Article::addNewArticle();
             //header('Location: scienceblog/mainpage');
-            return require_once(ROOT.'/views/articles.php');
+            return header('Location: scienceblog/mainpage');
         }
         else
         {
-            echo "else";
             $e = "Something wrong";
             return require_once(ROOT.'/views/articles.php');
         }
     }
 
-    private function validateArticle($array)        // check for censured
+    private function validateArticle($articleInfo)        // check for censured
     {
-        $validate = fopen("C:\OSPanel\domains\scienceBlog/validate.txt", "r");
+        $validate = fopen("C:/OSPanel/domains/scienceBlog/validate.txt", "r");
         $validateText = fgets($validate, 999);
         $validateArr = explode(", ", $validateText);
 
-        echo "<br>";
-        var_dump($validateArr);
-
-        echo "<br>";
-        var_dump($array);
-
-        $bool = true;;
-
-        for($i=0; $i<=count($array); $i++)
+        foreach($articleInfo as $articleatribute)
         {
-            for($j=0; $j<=count($validateArr); $j++)
+            for($j=0; $j<count($validateArr); $j++)
             {
-                if($array[$i] == $validateArr[$j])
+                if($articleatribute == $validateArr[$j])
                 {
-                    $bool = false;
+                    return false;
                 }
             }
         }
-        
-        return $bool;
+        return true;
+
     }
 
     public function actionShow()

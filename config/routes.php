@@ -9,6 +9,8 @@
 
         'article' => 'article/show',
 
+        'getarticle/([a-z]+)' => 'getarticle/getArticle/$1',
+
 
     );
 

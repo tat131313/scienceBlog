@@ -6,7 +6,7 @@ class CategoryController{
 
         $articlesToChoosenCategory = Category::selectArticlesToChoosenCategory($category);
         
-        return require_once(ROOT.'/views/categories.php');;
+        return require_once(ROOT.'/views/categories.php');
     }
 }
 
