@@ -6,6 +6,7 @@ class ArticleController
 {
     public function actionAddNewArticle()
     {
+        ob_start();
         
         //var_dump($_POST);
 
@@ -19,9 +20,8 @@ class ArticleController
         
         if($article -> validateArticle($articleInfo))
         {
-            Article::addNewArticle();
-            //header('Location: scienceblog/mainpage');
-            return header('Location: scienceblog/mainpage');
+            Article::addNewArticle();  
+            return header('Location: /mainpage');
         }
         else
         {
@@ -53,6 +53,14 @@ class ArticleController
     public function actionShow()
     {
         return require_once(ROOT.'/views/articles.php');
+    }
+
+    public function actionGetArticle($articleName){
+        echo $articleName;
+        $chooseArticle = Article::getArticle($articleName);
+
+        var_dump($chooseArticle);
+        //return require_once(ROOT.'/views/getarticle.php');
     }
 
 }

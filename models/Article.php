@@ -59,5 +59,23 @@ class Article
 
         return true;
     }
+
+    public static function getArticle($articleName)
+    {
+        $db = db::getConnection();
+
+        $getArticle = array();
+
+        $result = $db->query("SELECT `article_name`, `autor`, `article` FROM `articles` WHERE `article_name` = '$articleName'");
+
+        while($row = $result->fetch())
+        {
+            $getArticle['article_name'] = $row['article_name'];
+            $getArticle['autor'] = $row['autor'];
+            $getArticle['article'] = $row['article'];
+        }
+
+        return $getArticle;
+    }
 }
 ?>

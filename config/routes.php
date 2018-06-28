@@ -7,10 +7,9 @@
 
         'article/add' => 'article/addNewArticle',
 
+        'article/([a-z]+)' => 'article/getArticle/$1',
+        
         'article' => 'article/show',
-
-        'getarticle/([a-z]+)' => 'getarticle/getArticle/$1',
-
 
     );
 
