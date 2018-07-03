@@ -66,7 +66,10 @@ class Article
 
         $getArticle = array();
 
+        //$id = $db->query("SELECT `id` FROM `articles` WHERE `article_name` = '$articleName'");
+
         $result = $db->query("SELECT `article_name`, `autor`, `article` FROM `articles` WHERE `article_name` = '$articleName'");
+        
 
         while($row = $result->fetch())
         {
