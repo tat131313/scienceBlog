@@ -57,11 +57,14 @@ class ArticleController
 
     public function actionGetArticle($articleName)
     {
-        //echo $articleName;
         $chooseArticle = Article::getArticle($articleName);
 
-        var_dump($chooseArticle);
         return require_once(ROOT.'/views/getarticle.php');
+    }
+
+    public function actionEdit()
+    {
+        echo "Edit";
     }
 
 }

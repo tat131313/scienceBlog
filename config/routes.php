@@ -7,6 +7,8 @@
 
         'article/add' => 'article/addNewArticle',
 
+        'article/edit' => 'article/edit',
+
         'article/([a-z]+)' => 'article/getArticle/$1',
         
         'article' => 'article/show',
