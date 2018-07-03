@@ -64,7 +64,15 @@ class ArticleController
 
     public function actionEdit()
     {
-        echo "Edit";
+        //$chooseArticle = Article::getArticle($articleName);
+        //var_dump($chooseArticle);
+
+        return require_once(ROOT.'/views/editarticle.php');
+    }
+
+    public function actionAddComment()
+    {
+        echo "comment";
     }
 
 }
