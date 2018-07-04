@@ -66,10 +66,16 @@ class ArticleController
 
     public function actionEdit($articleId)
     {
-        //$chooseArticle = Article::getArticle($articleName);
-        //var_dump($chooseArticle);
+        $chooseArticle = Article::getArticle($articleId);
 
         return require_once(ROOT.'/views/editarticle.php');
+    }
+
+    public function actionEditArticle($articleId)
+    {
+        $fixedArticle = Article::fixArticle($articleId);
+
+        return require_once(ROOT.'/views/readyedit.php');
     }
 
     public function actionAddComment($articleId)

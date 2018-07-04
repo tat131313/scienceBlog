@@ -86,5 +86,19 @@ class Article
 
         return $allComments;
     }
+
+    public static function fixArticle($articleId)
+    {
+        $db = db::getConnection();
+
+        $article_name = $_POST['articleName'];
+        $article = $_POST['article'];
+        $abstract = $_POST['abstract'];
+
+        $result = $db->query("UPDATE `articles` SET `article_name`='$article_name', `article`='$article', `abstract`='$abstract'  
+        WHERE `id` = '$articleId'");
+
+        //return $true;  
+    }
 }
 ?>

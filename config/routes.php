@@ -9,6 +9,8 @@
 
         'article/add' => 'article/addNewArticle',
 
+        'article/editarticle/([0-9]+)' => 'article/editArticle/$1',
+
         'article/edit/([0-9]+)' => 'article/edit/$1',
 
         'article/([0-9]+)' => 'article/getArticle/$1',
