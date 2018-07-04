@@ -9,11 +9,13 @@
 
         'article/add' => 'article/addNewArticle',
 
-        'article/edit' => 'article/edit',
+        'article/edit/([0-9]+)' => 'article/edit/$1',
 
-        'article/([a-z]+)' => 'article/getArticle/$1',
+        'article/([0-9]+)' => 'article/getArticle/$1',
         
         'article' => 'article/show',
+
+        '' => 'mainpage/showMainpage',
 
     );
 

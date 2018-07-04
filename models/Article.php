@@ -60,23 +60,22 @@ class Article
         return true;
     }
 
-    public static function getArticle($articleName)
+    public static function getArticle($articleId)
     {
         $db = db::getConnection();
 
         $getArticle = array();
 
-        //$id = $db->query("SELECT `id` FROM `articles` WHERE `article_name` = '$articleName'");
-
-        $result = $db->query("SELECT `article_name`, `autor`, `article` FROM `articles` WHERE `article_name` = '$articleName'");
+        $result = $db->query("SELECT `*` FROM `articles` WHERE `id` = '$articleId'");
         
-
-        while($row = $result->fetch())
-        {
+        $getArticle = $result->fetch(PDO::FETCH_ASSOC);
+        //while($row = $result->fetch())
+        /*{
             $getArticle['article_name'] = $row['article_name'];
             $getArticle['autor'] = $row['autor'];
             $getArticle['article'] = $row['article'];
-        }
+            $getArticle['id'] = $row['id'];
+        }*/
 
         return $getArticle;
     }

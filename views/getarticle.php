@@ -6,7 +6,7 @@
         <p><strong>Article:</strong> <?php echo $chooseArticle['article']; ?></p>        
     </div>
 
-    <form method="POST" action="/article/edit">
+    <form method="POST" action="/article/edit/<?php echo $chooseArticle['id']?>">
         <button type="submit" class="btn btn-primary">Edit</button>
     </form>
 

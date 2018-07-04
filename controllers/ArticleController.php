@@ -55,14 +55,14 @@ class ArticleController
         return require_once(ROOT.'/views/articles.php');
     }
 
-    public function actionGetArticle($articleName)
+    public function actionGetArticle($articleId)
     {
-        $chooseArticle = Article::getArticle($articleName);
+        $chooseArticle = Article::getArticle($articleId);
 
         return require_once(ROOT.'/views/getarticle.php');
     }
 
-    public function actionEdit()
+    public function actionEdit($articleId)
     {
         //$chooseArticle = Article::getArticle($articleName);
         //var_dump($chooseArticle);

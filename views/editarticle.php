@@ -1,7 +1,7 @@
 <?php include_once("layouts/header.php"); ?>
 
 <br>
-  <form method="POST" action="/article/add">
+  <form>
     <div class="form-group row">
       <label for="articleName" class="col-sm-2 col-form-label">Article name:</label>
       <div class="col-sm-10">
