@@ -59,6 +59,8 @@ class ArticleController
     {
         $chooseArticle = Article::getArticle($articleId);
 
+        $showComments = Article::showAllComments($articleId);
+
         return require_once(ROOT.'/views/getarticle.php');
     }
 
@@ -70,9 +72,10 @@ class ArticleController
         return require_once(ROOT.'/views/editarticle.php');
     }
 
-    public function actionAddComment()
+    public function actionAddComment($articleId)
     {
-        echo "comment";
+        $newComment = Article::addNewComment($articleId);
+        return header('Location: /mainpage');
     }
 
 }

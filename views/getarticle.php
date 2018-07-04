@@ -12,7 +12,7 @@
 
     <br><hr><br>
 
-    <form method="POST" action="/article/addComment">
+    <form method="POST" action="/article/addComment/<?php echo $chooseArticle['id']?>">
         <div class="form-group row">
         <label for="name" class="col-sm-1 col-form-label">Name:</label>
         <div class="col-sm-11">
@@ -38,5 +38,16 @@
         </div>
         </div>
     </form>
+
+    <br><hr><br>
+
+    <div> 
+        <?php foreach($showComments as $row): ?>
+            <p><strong>Name:</strong> <?php echo $row['name']; ?></p>
+            <p><strong>Email:</strong> <?php echo $row['email']; ?></p>
+            <p><strong>Comment:</strong> <?php echo $row['comment']; ?></p> 
+            <br>
+        <?php endforeach ?>       
+    </div>
     
 <?php include_once("layouts/footer.php"); ?>

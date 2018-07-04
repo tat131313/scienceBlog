@@ -2,27 +2,6 @@
 
 class Article
 {
-
-    /*public static function getAllArticles()
-    {
-        $db = db::getConnection();
-
-        $allArticles = array();
-
-        $result = $db->query('SELECT `id`, `autor`, `date`, `abstract` FROM `articles` ORDER BY `date` DESC LIMIT 5');
-        $i = 0;
-        while($row = $result->fetch())
-        {
-            $allArticles[$i]['id'] = $row['id'];
-            $allArticles[$i]['autor'] = $row['autor'];
-            $allArticles[$i]['date'] = $row['date'];
-            $allArticles[$i]['abstract'] = $row['abstract'];
-            $i++;
-        }
-
-        return $allArticles;
-    }*/
-
     public static function getLastFiveArticles()
     {
         $db = db::getConnection();
@@ -69,15 +48,43 @@ class Article
         $result = $db->query("SELECT `*` FROM `articles` WHERE `id` = '$articleId'");
         
         $getArticle = $result->fetch(PDO::FETCH_ASSOC);
-        //while($row = $result->fetch())
-        /*{
-            $getArticle['article_name'] = $row['article_name'];
-            $getArticle['autor'] = $row['autor'];
-            $getArticle['article'] = $row['article'];
-            $getArticle['id'] = $row['id'];
-        }*/
 
         return $getArticle;
+    }
+
+    public static function addNewComment($articleId)
+    {
+        //echo $articleId;
+        $db = db::getConnection();
+
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $comment = $_POST['comment'];
+
+        $result = $db->query("INSERT INTO `comments` (`article_id`, `name`, `email`, `comment`) 
+        VALUES ('$articleId', '$name', '$email', '$comment')");
+
+        return true;
+    }
+
+    public static function showAllComments($articleId)
+    {
+        $db = db::getConnection();
+
+        $allComments = array();
+
+        $result = $db->query("SELECT `*` FROM `comments` WHERE `article_id` = '$articleId'");
+        
+        $i = 0;
+        while($row = $result->fetch())
+        {
+            $allComments[$i]['name'] = $row['name'];
+            $allComments[$i]['email'] = $row['email'];
+            $allComments[$i]['comment'] = $row['comment'];
+            $i++;
+        }
+
+        return $allComments;
     }
 }
 ?>
