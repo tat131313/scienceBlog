@@ -54,7 +54,6 @@ class Article
 
     public static function addNewComment($articleId)
     {
-        //echo $articleId;
         $db = db::getConnection();
 
         $name = $_POST['name'];

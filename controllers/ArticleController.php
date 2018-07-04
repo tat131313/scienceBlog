@@ -73,9 +73,25 @@ class ArticleController
 
     public function actionEditArticle($articleId)
     {
-        $fixedArticle = Article::fixArticle($articleId);
+        $articleInfo = array();
+        $articleInfo['articleName'] = $_POST['articleName'];
+        $articleInfo['article'] = $_POST['article'];
+        $articleInfo['abstract'] = $_POST['abstract'];
 
-        return require_once(ROOT.'/views/readyedit.php');
+        $article = new ArticleController;
+        
+        if($article -> validateArticle($articleInfo))
+        {
+            Article::fixArticle($articleId);
+            return require_once(ROOT.'/views/readyedit.php');
+        }
+        else
+        {
+            $e = "Something wrong";
+            return require_once(ROOT."/views/editarticle.php");
+        }
+
+        
     }
 
     public function actionAddComment($articleId)
