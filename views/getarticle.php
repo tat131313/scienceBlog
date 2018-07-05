@@ -12,6 +12,10 @@
 
     <br><hr><br>
 
+    <?php if(isset($e)):  ?>
+    <p><?php echo $e ?></p>
+    <?php endif ?>
+
     <form method="POST" action="/article/addComment/<?php echo $chooseArticle['id']?>">
         <div class="form-group row">
         <label for="name" class="col-sm-1 col-form-label">Name:</label>
@@ -49,5 +53,6 @@
             <br>
         <?php endforeach ?>       
     </div>
+
     
 <?php include_once("layouts/footer.php"); ?>

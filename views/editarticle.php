@@ -10,15 +10,15 @@
     </div>
     </div>
     <div class="form-group row">
-      <label for="article" class="col-sm-2 col-form-label">Article:</label>
+      <label for="abstract" class="col-sm-2 col-form-label">Abstract:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="article" id="article" value="<?php echo $chooseArticle['article']; ?>">
+        <textarea class="form-control" name="abstract" id="abstract" rows="5"><?php echo $chooseArticle['abstract']; ?></textarea>
       </div>
     </div>
     <div class="form-group row">
-      <label for="abstract" class="col-sm-2 col-form-label">Abstract:</label>
+      <label for="article" class="col-sm-2 col-form-label">Article:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="abstract" id="abstract" value="<?php echo $chooseArticle['abstract']; ?>">
+        <textarea class="form-control" name="article" id="article" rows="10"><?php echo $chooseArticle['article']; ?></textarea>
       </div>
     </div>
     <div class="form-group row">

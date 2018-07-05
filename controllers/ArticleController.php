@@ -87,6 +87,7 @@ class ArticleController
         }
         else
         {
+            $chooseArticle = Article::getArticle($articleId);
             $e = "Something wrong";
             return require_once(ROOT."/views/editarticle.php");
         }
@@ -100,57 +101,68 @@ class ArticleController
         $email = $_POST['email'];
         $comment = $_POST['comment'];
 
+        $nameValid = array();
+        $nameValid = explode(" ", $name);
 
+        $nameV = new ArticleController;
+
+        if($name == NULL || $email == NULL || $comment == NULL || !($nameV -> validateArticle($nameValid)))
+        {
+            $chooseArticle = Article::getArticle($articleId);
+            $showComments = Article::showAllComments($articleId);
+            $e = "Something wrong";
+            return require_once(ROOT.'/views/getarticle.php');
+        }
+
+        /*
         if($name)
         {
-            //$articleInfo = array();
-            //$articleInfo = explode(" ", $name);
+            $nameValid = array();
+            $nameValid = explode(" ", $name);
 
-            //$article = new ArticleController;
+            $nameV = new ArticleController;
         
-            //if($article -> validateArticle($articleInfo))
-            //{
+            if($nameV -> validateArticle($nameValid))
+            {
                 if($email)
                 {
                     if($comment)
                     {
-                        //$commentArr = explode(" ", $comment);
-
-                        //$com = new ArticleController;
-        
-                        //$com -> validateArticle($comment);
 
                         //Article::addNewComment($articleId, $com);
                         Article::addNewComment($articleId);
 
                         //return header('Location: /mainpage');
+
                     }
                     else
                     {
                         $e = "Something wrong";
-                        echo "Something wrong";
+                        return $e;
                         //return require_once(ROOT.'/views/articles.php');
                     }
                 }
                 else
                 {
                     $e = "Something wrong";
-                    echo "Something wrong";
+                    return $e;
                     //return require_once(ROOT.'/views/articles.php');
                 }
-           // }
-            //else
-            //{
-            //    $e = "Something wrong";
+            }
+            else
+            {
+                $e = "Something wrong";
+                return $e;
                 //return require_once(ROOT.'/views/articles.php');
-            //}
+            }
         }
         else
         {
             $e = "Something wrong";
-            echo "Something wrong";
-            //return require_once(ROOT.'/views/articles.php');
-        }
+            echo $e;
+            //return header("Location: /article/$articleId");
+            //require_once(ROOT.'/views/script.php');
+        }*/
     }
 
     private function validateComment($comment)        // check for censured
@@ -162,18 +174,14 @@ class ArticleController
         
         for($j=0; $j<count($validateArr); $j++)
         {
-            /*if($commentatribute == $validateArr[$j])
-            {
-                //return false;
-            }*/
-            $pos = strpos($commet, $validateArr[$j]);
+            $pos = strpos($comment, $validateArr[$j]);
             while($pos === true)
             {
                 echo $pos;
             }
         }
         
-        //return true;
+        return $comment;
 
     }
 
