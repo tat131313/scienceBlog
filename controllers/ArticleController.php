@@ -96,8 +96,82 @@ class ArticleController
 
     public function actionAddComment($articleId)
     {
-        $newComment = Article::addNewComment($articleId);
-        return header('Location: /mainpage');
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $comment = $_POST['comment'];
+
+
+        if($name)
+        {
+            //$articleInfo = array();
+            //$articleInfo = explode(" ", $name);
+
+            //$article = new ArticleController;
+        
+            //if($article -> validateArticle($articleInfo))
+            //{
+                if($email)
+                {
+                    if($comment)
+                    {
+                        //$commentArr = explode(" ", $comment);
+
+                        //$com = new ArticleController;
+        
+                        //$com -> validateArticle($comment);
+
+                        //Article::addNewComment($articleId, $com);
+                        Article::addNewComment($articleId);
+
+                        //return header('Location: /mainpage');
+                    }
+                    //else
+                    //{
+                    //    $e = "Something wrong";
+                        //return require_once(ROOT.'/views/articles.php');
+                    //}
+                }
+               // else
+                //{
+                //    $e = "Something wrong";
+                    //return require_once(ROOT.'/views/articles.php');
+                //}
+           // }
+            //else
+            //{
+            //    $e = "Something wrong";
+                //return require_once(ROOT.'/views/articles.php');
+            //}
+        }
+       // else
+        //{
+        //    $e = "Something wrong";
+            //return require_once(ROOT.'/views/articles.php');
+       // }
+    }
+
+    private function validateComment($comment)        // check for censured
+    {
+        $validate = fopen("C:/OSPanel/domains/scienceBlog/validate.txt", "r");
+        $validateText = fgets($validate, 999);
+        $validateArr = explode(", ", $validateText);
+
+        
+        for($j=0; $j<count($validateArr); $j++)
+        {
+            /*if($commentatribute == $validateArr[$j])
+            {
+                //return false;
+            }*/
+            $pos = strpos($commet, $validateArr[$j]);
+            while($pos === true)
+            {
+                echo $pos;
+            }
+        }
+        
+        //return true;
+
     }
 
 }
