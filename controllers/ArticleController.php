@@ -125,17 +125,19 @@ class ArticleController
 
                         //return header('Location: /mainpage');
                     }
-                    //else
-                    //{
-                    //    $e = "Something wrong";
+                    else
+                    {
+                        $e = "Something wrong";
+                        echo "Something wrong";
                         //return require_once(ROOT.'/views/articles.php');
-                    //}
+                    }
                 }
-               // else
-                //{
-                //    $e = "Something wrong";
+                else
+                {
+                    $e = "Something wrong";
+                    echo "Something wrong";
                     //return require_once(ROOT.'/views/articles.php');
-                //}
+                }
            // }
             //else
             //{
@@ -143,11 +145,12 @@ class ArticleController
                 //return require_once(ROOT.'/views/articles.php');
             //}
         }
-       // else
-        //{
-        //    $e = "Something wrong";
+        else
+        {
+            $e = "Something wrong";
+            echo "Something wrong";
             //return require_once(ROOT.'/views/articles.php');
-       // }
+        }
     }
 
     private function validateComment($comment)        // check for censured
