@@ -3,6 +3,8 @@
     (
         'mainpage' => 'mainpage/showMainpage',
 
+        'category/sort' => 'category/getCategory',
+
         'category/([a-z]+)' => 'category/getCategory/$1',
 
         'article/addComment' => 'article/addComment',
