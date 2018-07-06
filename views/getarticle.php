@@ -10,11 +10,24 @@
         <button type="submit" class="btn btn-primary">Edit</button>
     </form>
 
-    <br><hr><br>
+    <br><hr>
 
     <?php if(isset($e)):  ?>
     <p><?php echo $e ?></p>
     <?php endif ?>
+
+    <form method="POST" action="/article/edit/<?php echo $chooseArticle['id']?>">
+        <div class="form-group row">
+            <label for="rating" align="right" class="col-sm-1 col-form-label">Rating:</label>
+            <div class="col-sm-11">
+                <input type="text" readonly class="form-control-plaintext" id="rating" value="value">
+                <button type="submit" id="like" class="btn btn-danger">Like</button>
+                <button type="submit" id="dislike" class="btn btn-secondary">Dislike</button>
+            </div>
+        </div>
+    </form>
+
+    <hr><br>
 
     <form method="POST" action="/article/addComment/<?php echo $chooseArticle['id']?>">
         <div class="form-group row">
