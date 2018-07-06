@@ -114,6 +114,10 @@ class ArticleController
             return require_once(ROOT.'/views/getarticle.php');
         }
 
+        $com = new ArticleController;
+        $com -> validateComment($comment);
+        //var_dump($com);
+
         /*
         if($name)
         {
@@ -171,18 +175,20 @@ class ArticleController
         $validateText = fgets($validate, 999);
         $validateArr = explode(", ", $validateText);
 
+        //$newComment = $comment;
         
         for($j=0; $j<count($validateArr); $j++)
         {
-            $pos = strpos($comment, $validateArr[$j]);
-            while($pos === true)
-            {
-                echo $pos;
-            }
-        }
-        
-        return $comment;
 
+            $wordCount = strlen($validateArr[$j]);
+
+            $word = str_repeat("*", $wordCount);
+
+            $comment = str_replace($validateArr[$j], $word, $comment);
+
+        }
+        echo $comment;
+        return $comment;
     }
 
 }
