@@ -10,7 +10,7 @@
     </form>
     <div> 
         <?php foreach($articlesToChoosenCategory as $row): ?>
-            <h3>Title: <?php echo $row['article_name']; ?></h3>
+            <h4>Title:<a href="/article/<?php echo $row['id'];?>"><strong> <?php echo $row['article_name']; ?></a></strong></h4>
             <p><strong>Autor:</strong> <?php echo $row['autor']; ?></p>
             <p><strong>Date:</strong> <?php echo $row['date']; ?></p>
             <p><strong>Abstract:</strong> <?php echo $row['abstract']; ?></p>
