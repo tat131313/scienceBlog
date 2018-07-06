@@ -1,31 +1,29 @@
 <?php include_once("layouts/header.php"); ?>
-<br>
+    <br>
+
     <div> 
         <h3>Title: <?php echo $chooseArticle['article_name']; ?></h3>
         <p><strong>Autor:</strong> <?php echo $chooseArticle['autor']; ?></p>
-        <p><strong>Article:</strong> <?php echo $chooseArticle['article']; ?></p>        
+        <p><strong>Article:</strong> <?php echo $chooseArticle['article']; ?></p>
+        <p><strong>Rating:</strong> <?php echo $chooseArticle['rating']; ?></p>        
     </div>
 
-    <form method="POST" action="/article/edit/<?php echo $chooseArticle['id']?>">
-        <button type="submit" class="btn btn-primary">Edit</button>
+    <form method="POST" action="/article/rating/<?php echo $chooseArticle['id']?>">
+        <div class="form-group row">
+            <div class="col-sm-11">
+                <button type="submit" name="like" value="like" class="btn btn-danger">Like</button>
+                <button type="submit" name="dislike" value="dislike" class="btn btn-secondary">Dislike</button>
+            </div>
+        </div>
     </form>
 
-    <br><hr>
+    <form method="POST" action="/article/edit/<?php echo $chooseArticle['id']?>">
+        <button type="submit" class="btn btn-outline-primary">Edit article</button>
+    </form>
 
     <?php if(isset($e)):  ?>
     <p><?php echo $e ?></p>
     <?php endif ?>
-
-    <form method="POST" action="/article/edit/<?php echo $chooseArticle['id']?>">
-        <div class="form-group row">
-            <label for="rating" align="right" class="col-sm-1 col-form-label">Rating:</label>
-            <div class="col-sm-11">
-                <input type="text" readonly class="form-control-plaintext" id="rating" value="value">
-                <button type="submit" id="like" class="btn btn-danger">Like</button>
-                <button type="submit" id="dislike" class="btn btn-secondary">Dislike</button>
-            </div>
-        </div>
-    </form>
 
     <hr><br>
 

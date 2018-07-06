@@ -138,6 +138,25 @@ class ArticleController
         return $comment;
     }
 
+    public function actionRating($articleId)
+    {
+        //echo "Rating";
+        if(isset($_POST['like']))
+        {
+            Article::likeRating($articleId);
+        }
+
+        if(isset($_POST['dislike']))
+        {
+            Article::dislikeRating($articleId);
+        }
+        
+        $chooseArticle = Article::getArticle($articleId);
+        $showComments = Article::showAllComments($articleId);
+        return require_once(ROOT.'/views/getarticle.php');
+        
+    }
+
 }
 
 ?>

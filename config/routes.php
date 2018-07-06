@@ -13,6 +13,8 @@
 
         'article/edit/([0-9]+)' => 'article/edit/$1',
 
+        'article/rating/([0-9]+)' => 'article/rating/$1',
+
         'article/([0-9]+)' => 'article/getArticle/$1',
         
         'article' => 'article/show',
