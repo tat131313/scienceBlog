@@ -7,8 +7,6 @@ class ArticleController
     public function actionAddNewArticle()
     {
         ob_start();
-        
-        //var_dump($_POST);
 
         $articleInfo = array();
         $articleInfo['articleName'] = $_POST['articleName'];
@@ -115,79 +113,28 @@ class ArticleController
         }
 
         $com = new ArticleController;
-        $com -> validateComment($comment);
-        //var_dump($com);
+        $comment = $com -> validateComment($comment);
 
-        /*
-        if($name)
-        {
-            $nameValid = array();
-            $nameValid = explode(" ", $name);
-
-            $nameV = new ArticleController;
-        
-            if($nameV -> validateArticle($nameValid))
-            {
-                if($email)
-                {
-                    if($comment)
-                    {
-
-                        //Article::addNewComment($articleId, $com);
-                        Article::addNewComment($articleId);
-
-                        //return header('Location: /mainpage');
-
-                    }
-                    else
-                    {
-                        $e = "Something wrong";
-                        return $e;
-                        //return require_once(ROOT.'/views/articles.php');
-                    }
-                }
-                else
-                {
-                    $e = "Something wrong";
-                    return $e;
-                    //return require_once(ROOT.'/views/articles.php');
-                }
-            }
-            else
-            {
-                $e = "Something wrong";
-                return $e;
-                //return require_once(ROOT.'/views/articles.php');
-            }
-        }
-        else
-        {
-            $e = "Something wrong";
-            echo $e;
-            //return header("Location: /article/$articleId");
-            //require_once(ROOT.'/views/script.php');
-        }*/
+        Article::addNewComment($articleId, $comment);
+        $chooseArticle = Article::getArticle($articleId);
+        $showComments = Article::showAllComments($articleId);
+        return require_once(ROOT.'/views/getarticle.php');
     }
 
-    private function validateComment($comment)        // check for censured
+    private function validateComment($comment)        // check for censured of comment
     {
         $validate = fopen("C:/OSPanel/domains/scienceBlog/validate.txt", "r");
         $validateText = fgets($validate, 999);
         $validateArr = explode(", ", $validateText);
-
-        //$newComment = $comment;
         
         for($j=0; $j<count($validateArr); $j++)
         {
-
             $wordCount = strlen($validateArr[$j]);
 
             $word = str_repeat("*", $wordCount);
 
             $comment = str_replace($validateArr[$j], $word, $comment);
-
         }
-        echo $comment;
         return $comment;
     }
 
