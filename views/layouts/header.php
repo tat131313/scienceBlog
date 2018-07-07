@@ -20,16 +20,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/category/sport" <?php if(isset($category)) if($category == "sport"):?>style="background-color: red"<?php endif ?>>Sport</a>
+                    <a class="nav-link" href="/category/sport" <?php if(isset($category)) if($category == "sport"):?>style="border-style: double"<?php endif ?>>Sport</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/category/science">Science</a>
+                    <a class="nav-link" href="/category/science"<?php if(isset($category)) if($category == "science"):?>style="border-style: double"<?php endif ?>>Science</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/category/info">Info</a>
+                    <a class="nav-link" href="/category/info"<?php if(isset($category)) if($category == "info"):?>style="border-style: double"<?php endif ?>>Info</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/category/other">Other</a>
+                    <a class="nav-link" href="/category/other"<?php if(isset($category)) if($category == "other"):?>style="border-style: double"<?php endif ?>>Other</a>
                 </li>
             </ul>
         </div>
