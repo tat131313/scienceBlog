@@ -52,13 +52,13 @@ class Article
         return $getArticle;
     }
 
-    public static function addNewComment($articleId)
+    public static function addNewComment($articleId, $comment)
     {
         $db = db::getConnection();
 
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $comment = $_POST['comment'];
+        //$comment = $_POST['comment'];
 
         $result = $db->query("INSERT INTO `comments` (`article_id`, `name`, `email`, `comment`) 
         VALUES ('$articleId', '$name', '$email', '$comment')");

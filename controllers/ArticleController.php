@@ -114,6 +114,7 @@ class ArticleController
 
         $com = new ArticleController;
         $comment = $com -> validateComment($comment);
+        //echo $comment;
 
         Article::addNewComment($articleId, $comment);
         $chooseArticle = Article::getArticle($articleId);
